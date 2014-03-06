@@ -1,3 +1,9 @@
+
+# ---- variables -----
+postReceiveFile="post-receive"
+vhostFile="/etc/httpd/conf.d/vhost.conf"
+
+# ---- main body -----
 read -p "enter server url: " url
 read -p "re-enter server url: " urlcheck
 
@@ -59,33 +65,31 @@ cd "./hooks/"
 echo "Create post-receive inside hooks/"
 
 
-
 if [ "$subfolder" != 0 ]; then
-  echo "#!/bin/sh" > "post-recieve"
-  echo "while read oldrev newrev refname" >> "post-receive"
+  echo "#!/bin/sh" > $postReceiveFile
+  echo "while read oldrev newrev refname" >> $postReceiveFile
   echo "do" >> "post-receive"
-  echo "    branch=$(git rev-parse --symbolic --abbrev-ref $refname)" >> "post-receive"
-  echo "    echo Update pushed to branch $branch" >> "post-receive"
-  echo "    GIT_WORK_TREE=/home/ec2-user/$url" >> "post-receive"
-  echo "    export GIT_WORK_TREE" >> "post-receive"
-  echo "    git checkout -f $branch" >> "post-receive"
-  echo "    cp -r /home/ec2-user/$url/$subfolder/* /var/www/html/$url/$branch" >> "post-receive"
-  echo "done" >> "post-receive"
+  echo "    branch=\$(git rev-parse --symbolic --abbrev-ref \$refname)" >> $postReceiveFile
+  echo "    echo 'Update pushed to branch \$branch'" >> $postReceiveFile
+  echo "    GIT_WORK_TREE=/home/ec2-user/$url" >> $postReceiveFile
+  echo "    export GIT_WORK_TREE" >> $postReceiveFile
+  echo "    git checkout -f \$branch" >> $postReceiveFile
+  echo "    cp -rf /home/ec2-user/$url/$subfolder/* /var/www/html/$url/\$branch" >> $postReceiveFile
+  echo "done" >> $postReceiveFile
 else
-  echo "#!/bin/sh" > "post-recieve"
-  echo "while read oldrev newrev refname" >> "post-receive"
-  echo "do" >> "post-receive"
-  echo "    branch=$(git rev-parse --symbolic --abbrev-ref $refname)" >> "post-receive"
-  echo "    echo Update pushed to branch $branch" >> "post-receive"
-  echo "    GIT_WORK_TREE=/home/ec2-user/$url" >> "post-receive"
-  echo "    export GIT_WORK_TREE" >> "post-receive"
-  echo "    git checkout -f $branch" >> "post-receive"
-  echo "    cp -r /home/ec2-user/$url/* /var/www/html/$url/$branch" >> "post-receive"
-  echo "done" >> "post-receive"
-
+  echo "#!/bin/sh" > "post-receive"
+  echo "while read oldrev newrev refname" >> $postReceiveFile
+  echo "do" >> $postReceiveFile
+  echo "    branch=\$(git rev-parse --symbolic --abbrev-ref \$refname)" >> $postReceiveFile
+  echo "    echo 'Update pushed to branch \$branch'" >> $postReceiveFile
+  echo "    GIT_WORK_TREE=/var/www/html/$url" >> $postReceiveFile
+  echo "    export GIT_WORK_TREE" >> $postReceiveFile
+  echo "    git checkout -f \$branch" >> $postReceiveFile
+  echo "    cp -rf /var/www/html/$url/* /var/www/html/$url/\$branch" >> $postReceiveFile
+  echo "done" >> $postReceiveFile
 fi
 
-chmod +x "./post-receive"
+chmod +x "./$postReceiveFile"
 
 echo "Create folder $url in /var/www/html/"
 sudo mkdir "/var/www/html/$url"
@@ -96,15 +100,15 @@ test -d "/var/www/html/$url"
 
 echo "Add new server to vhost.conf"
 #change vhost.conf owner to ec2-user
-sudo chown ec2-user "/etc/httpd/conf.d/vhost.conf"
+sudo chown ec2-user $vhostFile
 
-echo "" >> "/etc/httpd/conf.d/vhost.conf"
-echo "<VirtualHost *>" >> "/etc/httpd/conf.d/vhost.conf"
-echo "Servername $url" >> "/etc/httpd/conf.d/vhost.conf"
-echo "DocumentRoot /var/www/html/$url" >> "/etc/httpd/conf.d/vhost.conf"
-echo "</VirtualHost>" >> "/etc/httpd/conf.d/vhost.conf"
+echo "" >> $vhostFile
+echo "<VirtualHost *>" >> $vhostFile
+echo "Servername $url" >> $vhostFile
+echo "DocumentRoot /var/www/html/$url" >> $vhostFile
+echo "</VirtualHost>" >> $vhostFile
 
-sudo chown root "/etc/httpd/conf.d/vhost.conf"
+sudo chown root $vhostFile
 
 echo "Complete"
 echo "Reload apache server conf"
