@@ -1,3 +1,4 @@
+#!/bin/sh
 read -p "enter server url: " url
 read -p "re-enter server url: " urlcheck
 
@@ -59,15 +60,31 @@ cd "./hooks/"
 
 echo "Create post-receive inside hooks/"
 
+
+
 if [ "$subfolder" != 0 ]; then
-		echo "GIT_WORK_TREE=/home/ec2-user/$url" > "post-receive"
-		echo "export GIT_WORK_TREE" >> "post-receive"
-		echo "git checkout -f" >> "post-receive"
-		echo "cp -r /home/ec2-user/$url/$subfolder/* /var/www/html/$url" >> "post-receive"
+		echo "#!/bin/sh" > "post-recieve"
+		echo "while read oldrev newrev refname" >> "post-receive"
+		echo "do" >> "post-receive"
+		echo "    branch=$(git rev-parse --symbolic --abbrev-ref $refname)" >> "post-receive"
+		echo "    echo Update pushed to branch $branch" >> "post-receive"
+		echo "    GIT_WORK_TREE=/home/ec2-user/$url" >> "post-receive"
+		echo "    export GIT_WORK_TREE" >> "post-receive"
+		echo "    git checkout -f $branch" >> "post-receive"
+		echo "    cp -r /home/ec2-user/$url/$subfolder/* /var/www/html/$url/$branch" >> "post-receive"
+		echo "done" >> "post-receive"
 else
-				echo "GIT_WORK_TREE=/var/www/html/$url" > "post-receive"
-				echo "export GIT_WORK_TREE" >> "post-receive"
-				echo "git checkout -f" >> "post-receive"
+		echo "#!/bin/sh" > "post-recieve"
+		echo "while read oldrev newrev refname" >> "post-receive"
+		echo "do" >> "post-receive"
+		echo "    branch=$(git rev-parse --symbolic --abbrev-ref $refname)" >> "post-receive"
+		echo "    echo Update pushed to branch $branch" >> "post-receive"
+		echo "    GIT_WORK_TREE=/home/ec2-user/$url" >> "post-receive"
+		echo "    export GIT_WORK_TREE" >> "post-receive"
+		echo "    git checkout -f $branch" >> "post-receive"
+		echo "    cp -r /home/ec2-user/$url/* /var/www/html/$url/$branch" >> "post-receive"
+		echo "done" >> "post-receive"
+
 fi
 
 chmod +x "./post-receive"
