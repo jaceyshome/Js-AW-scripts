@@ -1,3 +1,4 @@
+#!/bin/sh
 read -p "enter server url: " url
 read -p "re-enter server url: " urlcheck
 
