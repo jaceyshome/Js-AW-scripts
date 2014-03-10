@@ -3,55 +3,56 @@
 postReceiveFile="post-receive"
 vhostFile="/etc/httpd/conf.d/vhost.conf"
 
-# ---- main body -----
+# ---- get url -----
 read -p "enter server url: " url
 read -p "re-enter server url: " urlcheck
 
+
 if [ "$url" == "" ]; then
-  echo "error: url is empty"
-  exit 0
+	echo "error: url is empty"
+	exit 0
 elif [ "$urlcheck" == "" ]; then
-  echo "error: url doesn't match"
-  exit 0
+	echo "error: url doesn't match"
+	exit 0
 elif [ "$url" != "$urlcheck" ]; then
-  echo "error: url doesn't match"
-  exit 0
+	echo "error: url doesn't match"
+	exit 0
 else
-  echo "Server name: $url"
+	echo "Server name: $url"
 fi
 
-
+#---- get subfolder name ----
 read -p "Use subfolder for web root? (y/n) " subfolder
 
 if [ "$subfolder" == "y" ] || [ "$subfolder" == "Y" ]; then
-  subfolder="bin"
-  read -p "enter subfolder name, default is 'bin': " subfolder
-  read -p "re-enter subfolder name, default is 'bin': " subfolderCheck
+	subfolder="bin"
+	read -p "enter subfolder name, default is 'bin': " subfolder
+	read -p "re-enter subfolder name, default is 'bin': " subfolderCheck
 
-  if [ "$subfolder" != "$subfolderCheck" ]; then
-    echo "sub folder name doesn't match"
-    exit 0
-  fi
-  if [ "$subfolder" == "" ] && [ "$subfolderCheck" == "" ]; then
-    subfolder="bin"
-  fi
-  echo "subfolder name: $subfolder"
+	if [ "$subfolder" != "$subfolderCheck" ]; then
+		echo "sub folder name doesn't match"
+		exit 0
+	fi
+	if [ "$subfolder" == "" ] && [ "$subfolderCheck" == "" ]; then
+		subfolder="bin"
+	fi
+	echo "subfolder name: $subfolder"
 
 else
-  subfolder=0
+	subfolder=0
 fi
 
-
+#---- create git folder ----
 #If subfolder != 0 create folder for subfolder firstly
 if [ "$subfolder" != 0 ]; then
-  echo "Create git clone folder: " $url
-  mkdir "$url"
-  test -d "./$url"
+	echo "Create git clone folder: " $url
+	mkdir "$url"
+	test -d "./$url"
 fi
-
 
 gitFolderName="$url.git"
 
+#----- create git folder on home/user -----
 echo "Create git folder: " $gitFolderName
 mkdir "$gitFolderName"
 test -d "./$gitFolderName"
@@ -64,33 +65,43 @@ cd "./hooks/"
 
 echo "Create post-receive inside hooks/"
 
+#---- check or create branch folders -----
+echo "#!/bin/sh" > $postReceiveFile
+echo "while read oldrev newrev refname" >> $postReceiveFile
+echo "do" >> $postReceiveFile
+echo "    branch=\$(git rev-parse --symbolic --abbrev-ref \$refname)" >> $postReceiveFile
+echo "    if [ -d '/var/www/html/$url/\$branch' ]; then" >> $postReceiveFile
+echo "      echo 'Check branch folder: \$branch, it exists'" >> $postReceiveFile
+echo "    else" >> $postReceiveFile
+echo "      sudo mkdir -m 777 /var/www/html/$url/\$branch" >> $postReceiveFile
+echo "      echo 'Create branch folder: /var/www/html/$url/\$branch'" >> $postReceiveFile
+echo "    fi" >> $postReceiveFile
+echo "done" >> $postReceiveFile
 
+#---- add commands for copying files to branch folder ----
 if [ "$subfolder" != 0 ]; then
-  echo "#!/bin/sh" > $postReceiveFile
-  echo "while read oldrev newrev refname" >> $postReceiveFile
-  echo "do" >> "post-receive"
-  echo "    branch=\$(git rev-parse --symbolic --abbrev-ref \$refname)" >> $postReceiveFile
-  echo "    echo 'Update pushed to branch \$branch'" >> $postReceiveFile
-  echo "    GIT_WORK_TREE=/home/ec2-user/$url" >> $postReceiveFile
-  echo "    export GIT_WORK_TREE" >> $postReceiveFile
-  echo "    git checkout -f \$branch" >> $postReceiveFile
-  echo "    cp -rf /home/ec2-user/$url/$subfolder/* /var/www/html/$url/\$branch" >> $postReceiveFile
-  echo "done" >> $postReceiveFile
+	echo "while read oldrev newrev refname" >> $postReceiveFile
+	echo "do" >> $postReceiveFile
+	echo "    echo 'Update pushed to branch \$branch'" >> $postReceiveFile
+	echo "    GIT_WORK_TREE=/home/ec2-user/$url" >> $postReceiveFile
+	echo "    export GIT_WORK_TREE" >> $postReceiveFile
+	echo "    git checkout -f \$branch" >> $postReceiveFile
+	echo "    cp -rf /home/ec2-user/$url/$subfolder/* /var/www/html/$url/\$branch" >> $postReceiveFile
+	echo "done" >> $postReceiveFile
 else
-  echo "#!/bin/sh" > "post-receive"
-  echo "while read oldrev newrev refname" >> $postReceiveFile
-  echo "do" >> $postReceiveFile
-  echo "    branch=\$(git rev-parse --symbolic --abbrev-ref \$refname)" >> $postReceiveFile
-  echo "    echo 'Update pushed to branch \$branch'" >> $postReceiveFile
-  echo "    GIT_WORK_TREE=/var/www/html/$url" >> $postReceiveFile
-  echo "    export GIT_WORK_TREE" >> $postReceiveFile
-  echo "    git checkout -f \$branch" >> $postReceiveFile
-  echo "    cp -rf /var/www/html/$url/* /var/www/html/$url/\$branch" >> $postReceiveFile
-  echo "done" >> $postReceiveFile
+	echo "while read oldrev newrev refname" >> $postReceiveFile
+	echo "do" >> $postReceiveFile
+	echo "    echo 'Update pushed to branch \$branch'" >> $postReceiveFile
+	echo "    GIT_WORK_TREE=/var/www/html/$url" >> $postReceiveFile
+	echo "    export GIT_WORK_TREE" >> $postReceiveFile
+	echo "    git checkout -f \$branch" >> $postReceiveFile
+	echo "    cp -rf /var/www/html/$url/* /var/www/html/$url/\$branch" >> $postReceiveFile
+	echo "done" >> $postReceiveFile
 fi
 
 chmod +x "./$postReceiveFile"
 
+#---- create server's folder ----
 echo "Create folder $url in /var/www/html/"
 sudo mkdir "/var/www/html/$url"
 sudo chown ec2-user "/var/www/html/$url"
@@ -98,6 +109,7 @@ sudo chown ec2-user "/var/www/html/$url"
 echo "Check document root: /var/www/html/$url"
 test -d "/var/www/html/$url"
 
+#---- register server on vhost.conf ----
 echo "Add new server to vhost.conf"
 #change vhost.conf owner to ec2-user
 sudo chown ec2-user $vhostFile
