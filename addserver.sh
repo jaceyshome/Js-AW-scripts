@@ -73,7 +73,7 @@ echo "    branch=\$(git rev-parse --symbolic --abbrev-ref \$refname)" >> $postRe
 echo "    if [ -d '/var/www/html/$url/\$branch' ]; then" >> $postReceiveFile
 echo "      echo 'Check branch folder: \$branch, it exists'" >> $postReceiveFile
 echo "    else" >> $postReceiveFile
-echo "      sudo mkdir -m 777 /var/www/html/$url/\$branch" >> $postReceiveFile
+echo "      mkdir /var/www/html/$url/\$branch" >> $postReceiveFile
 echo "      echo 'Create branch folder: /var/www/html/$url/\$branch'" >> $postReceiveFile
 echo "    fi" >> $postReceiveFile
 echo "done" >> $postReceiveFile
@@ -126,3 +126,6 @@ echo "Complete"
 echo "Reload apache server conf"
 
 sudo /etc/init.d/httpd reload
+
+
+
