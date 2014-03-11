@@ -88,7 +88,7 @@ if [ "$subfolder" != 0 ]; then
   echo "    cp -rf /home/ec2-user/$url/$subfolder/* /var/www/html/$url/\$branch" >> $postReceiveFile
   echo "done" >> $postReceiveFile
 else
-  echo "    GIT_WORK_TREE=/var/www/html/$url" >> $postReceiveFile
+  echo "    GIT_WORK_TREE=/home/ec2-user/$url" >> $postReceiveFile
   echo "    export GIT_WORK_TREE" >> $postReceiveFile
   echo "    git checkout -f \$branch" >> $postReceiveFile
   echo "    cp -rf /var/www/html/$url/* /var/www/html/$url/\$branch" >> $postReceiveFile
