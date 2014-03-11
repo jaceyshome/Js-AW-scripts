@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a05f8f1f-9aea-40c9-9d67-e61ac50438ff" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\xampp\htdocs\aws_script\tmp.sh" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/addserver.sh" afterPath="$PROJECT_DIR$/addserver.sh" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -32,7 +31,7 @@
       <file leaf-file-name="addserver.sh" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/addserver.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="88" column="75" selection-start="2628" selection-end="2631" vertical-scroll-proportion="0.4094579" vertical-offset="965" max-vertical-offset="2070">
+            <state line="84" column="66" selection-start="2431" selection-end="2431" vertical-scroll-proportion="0.6416185" vertical-offset="705" max-vertical-offset="1995">
               <folding />
             </state>
           </provider>
@@ -41,7 +40,7 @@
       <file leaf-file-name="ssh" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ssh">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="16" selection-start="0" selection-end="63" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
+            <state line="3" column="4" selection-start="70" selection-end="70" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="135">
               <folding />
             </state>
           </provider>
@@ -78,17 +77,17 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/tmp.sh" />
         <option value="$PROJECT_DIR$/removeserver.sh" />
-        <option value="$PROJECT_DIR$/addserver.sh" />
-        <option value="$PROJECT_DIR$/ssh" />
         <option value="$PROJECT_DIR$/.git/config" />
+        <option value="$PROJECT_DIR$/ssh" />
+        <option value="$PROJECT_DIR$/addserver.sh" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="1121" />
+    <option name="x" value="893" />
     <option name="y" value="2" />
-    <option name="width" value="800" />
+    <option name="width" value="1028" />
     <option name="height" value="1048" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -263,13 +262,18 @@
       <created>1394433639160</created>
       <updated>1394433639160</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="testing code&#10;">
+      <created>1394516848751</created>
+      <updated>1394516848751</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1121" y="2" width="800" height="1048" extended-state="0" />
+    <frame x="893" y="2" width="1028" height="1048" extended-state="0" />
     <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40264025" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -285,7 +289,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -308,7 +311,8 @@
     <MESSAGE value="add testing files" />
     <MESSAGE value="remove shebang line, it doesn't work on ec2 server" />
     <MESSAGE value="add check branch folder exist functionality for addserver.sh" />
-    <option name="LAST_COMMIT_MESSAGE" value="add check branch folder exist functionality for addserver.sh" />
+    <MESSAGE value="testing code&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="testing code&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -362,13 +366,6 @@
         <state line="15" column="2" selection-start="372" selection-end="372" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="2220" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ssh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="16" selection-start="0" selection-end="63" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.git/config">
       <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
         <state />
@@ -379,12 +376,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ssh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="4" selection-start="70" selection-end="70" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="135">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/addserver.sh">
       <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="75" selection-start="2628" selection-end="2631" vertical-scroll-proportion="0.4094579" vertical-offset="965" max-vertical-offset="2070">
+        <state line="84" column="66" selection-start="2431" selection-end="2431" vertical-scroll-proportion="0.6416185" vertical-offset="705" max-vertical-offset="1995">
           <folding />
         </state>
       </provider>
