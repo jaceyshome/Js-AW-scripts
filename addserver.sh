@@ -42,17 +42,14 @@ else
   subfolder=0
 fi
 
-#---- create git folder ----
-#If subfolder != 0 create folder for subfolder firstly
-if [ "$subfolder" != 0 ]; then
-  echo "Create git clone folder: " $url
-  mkdir "$url"
-  test -d "./$url"
-fi
-
-gitFolderName="$url.git"
+#---- create git clone folder ----
+echo "Create git clone folder: " $url
+mkdir "$url"
+test -d "./$url"
 
 #----- create git folder on home/user -----
+gitFolderName="$url.git"
+
 echo "Create git folder: " $gitFolderName
 mkdir "$gitFolderName"
 test -d "./$gitFolderName"
@@ -77,21 +74,19 @@ echo "      mkdir /var/www/html/$url/\$branch" >> $postReceiveFile
 echo "      echo 'Create branch folder: /var/www/html/$url/'\$branch" >> $postReceiveFile
 echo "    fi" >> $postReceiveFile
 echo "    " >> $postReceiveFile
-echo " # ---- copy files ---- " >> $postReceiveFile
+
+#---- set git work tree ----
 echo "    echo 'Update pushed to branch \$branch'" >> $postReceiveFile
+echo "    GIT_WORK_TREE=/home/ec2-user/$url" >> $postReceiveFile
+echo "    export GIT_WORK_TREE" >> $postReceiveFile
+echo "    git checkout -f \$branch" >> $postReceiveFile
 
 #---- add commands for copying files to branch folder ----
 if [ "$subfolder" != 0 ]; then
-  echo "    GIT_WORK_TREE=/home/ec2-user/$url" >> $postReceiveFile
-  echo "    export GIT_WORK_TREE" >> $postReceiveFile
-  echo "    git checkout -f \$branch" >> $postReceiveFile
   echo "    cp -rf /home/ec2-user/$url/$subfolder/* /var/www/html/$url/\$branch" >> $postReceiveFile
   echo "done" >> $postReceiveFile
 else
-  echo "    GIT_WORK_TREE=/home/ec2-user/$url" >> $postReceiveFile
-  echo "    export GIT_WORK_TREE" >> $postReceiveFile
-  echo "    git checkout -f \$branch" >> $postReceiveFile
-  echo "    cp -rf /var/www/html/$url/* /var/www/html/$url/\$branch" >> $postReceiveFile
+  echo "    cp -rf /home/ec2-user/$url/* /var/www/html/$url/\$branch" >> $postReceiveFile
   echo "done" >> $postReceiveFile
 fi
 
@@ -122,6 +117,5 @@ echo "Complete"
 echo "Reload apache server conf"
 
 sudo /etc/init.d/httpd reload
-
 
 
