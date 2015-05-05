@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a05f8f1f-9aea-40c9-9d67-e61ac50438ff" name="Default" comment="add testing code">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testingSSH" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\aws_script\bin\test-directive.coffee" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\aws_script\bin\test.less" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\aws_script\ssh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/testingSSH" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/addserver.sh" afterPath="$PROJECT_DIR$/addserver.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/removeserver.sh" afterPath="$PROJECT_DIR$/removeserver.sh" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ShellScript.iws" />
@@ -34,28 +33,25 @@
       <file leaf-file-name="addserver.sh" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/addserver.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="74" column="30" selection-start="2026" selection-end="2026" vertical-scroll-proportion="0.0" vertical-offset="830" max-vertical-offset="1905">
+            <state line="137" column="0" selection-start="4409" selection-end="4409" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2574">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="testingSSH" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/testingSSH">
+      <file leaf-file-name="removeserver.sh" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/removeserver.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="20" selection-start="20" selection-end="20" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="865">
+            <state line="13" column="28" selection-start="340" selection-end="340" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2610">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.git/config">
-          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-            <state />
-          </provider>
+      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="54" selection-start="696" selection-end="696" vertical-scroll-proportion="-15.0" vertical-offset="0" max-vertical-offset="480">
+            <state line="3" column="0" selection-start="87" selection-end="87" vertical-scroll-proportion="0.08320493" vertical-offset="0" max-vertical-offset="649">
               <folding />
             </state>
           </provider>
@@ -79,19 +75,19 @@
         <option value="$USER_HOME$/Downloads/vhostBk.txt" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/tmp.sh" />
-        <option value="$PROJECT_DIR$/removeserver.sh" />
         <option value="$PROJECT_DIR$/.git/config" />
-        <option value="$PROJECT_DIR$/addserver.sh" />
         <option value="$PROJECT_DIR$/ssh" />
+        <option value="$PROJECT_DIR$/addserver.sh" />
+        <option value="$PROJECT_DIR$/removeserver.sh" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="893" />
-    <option name="y" value="2" />
-    <option name="width" value="1028" />
-    <option name="height" value="1048" />
+    <option name="x" value="47" />
+    <option name="y" value="24" />
+    <option name="width" value="1873" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -153,7 +149,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="aws_script" />
+              <option name="myItemId" value="js-awsscript" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -191,15 +187,11 @@
       <TestRunner />
       <method />
     </configuration>
-    <configuration default="true" type="BashConfigurationType" factoryName="Bash">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="INTERPRETER_PATH" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <module name="ShellScript" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
+    <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
+      <setting name="configLocationType" value="CONFIG_FILE" />
+      <setting name="settingsFile" value="" />
+      <setting name="serverType" value="INTERNAL" />
+      <setting name="preferredDebugBrowser" value="CHROME" />
       <method />
     </configuration>
     <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
@@ -289,16 +281,16 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="893" y="2" width="1028" height="1048" extended-state="0" />
+    <frame x="47" y="24" width="1873" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40264025" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Atlassian " active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2800852" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16494845" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13599126" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -306,11 +298,12 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32821077" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -341,7 +334,43 @@
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
+  <component name="atlassian-ide-plugin-workspace">
+    <option name="bambooConfiguration">
+      <BambooWorkspaceConfiguration>
+        <option name="view">
+          <BambooViewConfigurationBean />
+        </option>
+      </BambooWorkspaceConfiguration>
+    </option>
+    <option name="defaultCredentials">
+      <UserCfgBean />
+    </option>
+  </component>
+  <component name="atlassian-ide-plugin-workspace-issues">
+    <option name="view">
+      <JiraViewConfigurationBean>
+        <option name="viewFilterId" value="" />
+      </JiraViewConfigurationBean>
+    </option>
+  </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/addserver.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="74" column="30" selection-start="2026" selection-end="2026" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2286">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.git/config">
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="0" selection-start="285" selection-end="285" vertical-scroll-proportion="0.0" vertical-offset="198" max-vertical-offset="306">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/addserver.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state line="88" column="75" selection-start="2628" selection-end="2631" vertical-scroll-proportion="0.0" vertical-offset="785" max-vertical-offset="2055">
@@ -375,19 +404,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Downloads/vhostBk.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="0" selection-end="4055" vertical-scroll-proportion="0.3979239" vertical-offset="0" max-vertical-offset="5295" />
+    <entry file="file://$PROJECT_DIR$/addserver.sh">
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="87" selection-end="87" vertical-scroll-proportion="0.08704062" vertical-offset="0" max-vertical-offset="517" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/removeserver.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="2" selection-start="372" selection-end="372" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="2220" />
+        <state line="137" column="0" selection-start="4409" selection-end="4409" vertical-scroll-proportion="0.0" vertical-offset="719" max-vertical-offset="2574">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.git/config">
@@ -395,24 +419,21 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="54" selection-start="696" selection-end="696" vertical-scroll-proportion="-15.0" vertical-offset="0" max-vertical-offset="480">
+        <state line="11" column="0" selection-start="285" selection-end="285" vertical-scroll-proportion="0.317817" vertical-offset="0" max-vertical-offset="623">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/addserver.sh">
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/removeserver.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="30" selection-start="2026" selection-end="2026" vertical-scroll-proportion="0.0" vertical-offset="830" max-vertical-offset="1905">
+        <state line="13" column="28" selection-start="340" selection-end="340" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2610">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testingSSH">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="20" selection-start="20" selection-end="20" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="865">
+        <state line="3" column="0" selection-start="87" selection-end="87" vertical-scroll-proportion="0.08320493" vertical-offset="0" max-vertical-offset="649">
           <folding />
         </state>
       </provider>
