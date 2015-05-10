@@ -43,7 +43,6 @@ else
     printf " Cannot find the sub folder${defaultColor}\n"
 fi
 
-
 printf "Remove folder: /var/www/html/${url}"
 if [ -d "/var/www/html/$url" ]; then
     sudo rm -rf /var/www/html/$url
@@ -69,9 +68,7 @@ if [ $urlLinesLength == 0 ]; then
   #skip if no record
 
 else
-
     #search startMarkers and endMarkers' line numbers
-
     startMarkers=( $(grep -Fn $startMarker $vhostFile | cut -f1 -d:) )
     endMarkers=( $(grep -Fn $endMarker $vhostFile | cut -f1 -d:) )
 
@@ -113,17 +110,13 @@ else
     endMarkerLength=${#endMarkers[@]}
 
     if [ $startMarkerLength == $endMarkerLength ]; then
-
         #backup vhost.f
-
         dateAndTime=$(TZ=AEST date +"%Y-%m-%d-%H-%M-%S")
         backupFileName="vhost.f_"$dateAndTime
         cat $vhostFile > ./vhostbackup/$backupFileName
         printf "Back up vhost.f: ./vhostbackup/$backupFileName\n"
 
-
         #replace vhost.f by vhost.tmp
-
         sudo chown ec2-user "$vhostFile"
         cat vhost.tmp > $vhostFile
         rm -f vhost.tmp
